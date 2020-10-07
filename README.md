@@ -1,5 +1,5 @@
 # Webscraper
-Outputs an Excel file with current book discounts from medimops.de (incl. title, price, discount)
+Outputs an Excel file with current book discounts from the store https://www.medimops.de/buecher-fachbuecher-informatik-praktische-informatik-software-entwicklung-C0655742/ (incl. title, price, discount)
 
 ## Content of the repository
 
