@@ -5,13 +5,14 @@ from bs4 import BeautifulSoup
 from datetime import datetime
 
 
+# set up .xls - sheet with xlwt module
 wb = xlwt.Workbook()
 sheet1 = wb.add_sheet('Sheet Nr 1')
 first_col = sheet1.col(0)
-first_col.width = 256 * 5 # 20 characters wide (-ish)
+first_col.width = 256 * 5 # ~5 characters wide
 first_col.width
 second_col = sheet1.col(1)
-second_col.width = 256 * 100 # 20 characters wide (-ish)
+second_col.width = 256 * 100 # ~100 characters wide
 
 style1 = xlwt.easyxf('font: bold 1, color green;') 
 style2 = xlwt.easyxf('font: bold 1, color blue;') 
