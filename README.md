@@ -1,5 +1,5 @@
 # Webscraper
-Outputs an Excel file with discount books from medimops.de (incl. title, price, discount)
+Outputs an Excel file with current book discounts from medimops.de (incl. title, price, discount)
 
 ## Content of the repository
 
