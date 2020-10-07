@@ -17,11 +17,13 @@ second_col.width = 256 * 100 # ~100 characters wide
 style1 = xlwt.easyxf('font: bold 1, color green;') 
 style2 = xlwt.easyxf('font: bold 1, color blue;') 
 style3 = xlwt.easyxf('font: bold 1, color black;') 
+style4 = xlwt.easyxf('font: italic 1, color black;') 
 
 sheet1.write(0, 0, "Reduzierte Bücher zum Thema \'Softwareentwicklung\' von www.medimops.de", style1)
-sheet1.write(2,1, "Titel", style2)
-sheet1.write(2, 2, "Preis [€]", style2)
-sheet1.write(2, 3, "Rabatt [%]", style2)
+sheet1.write(1, 0, "https://www.medimops.de/buecher-fachbuecher-informatik-praktische-informatik-software-entwicklung-C0655742/", style4)
+sheet1.write(3,1, "Titel", style2)
+sheet1.write(3, 2, "Preis [€]", style2)
+sheet1.write(3, 3, "Rabatt [%]", style2)
 
 
 # URL of bargain book store, product section "software development"
@@ -60,7 +62,7 @@ def get_discount_perCent(discount_container):
 
 # iterate through product containers, access information of individual products
 i = 0
-row = 3
+row = 4
 
 for product in products:
 	i += 1
