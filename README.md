@@ -3,7 +3,7 @@ Outputs an Excel file with current book discounts from medimops.de (incl. title,
 
 ## Content of the repository
 
-1. __Webscraper.py__ 
+1. __Webscraper.py__: python script file 
     * using the modules `urllib` , the URL of the shop is accessed
     * the html is parsed using the module `BeautifulSoup`
     * price numbers and titles are extracted from the gained strings
