@@ -66,32 +66,38 @@ row = 4
 
 for product in products:
 	i += 1
-	data_list = []
-	title_container = product.findAll("div",{"class":"mx-product-list-item-title"})
-	title = title_container[0].text.strip()
-	
-	priceNew_container = product.findAll("div", {"class": "mx-product-list-item-save"})
-	priceNew = get_priceNew(priceNew_container)
+	try:
+		data_list = []
+		title_container = product.findAll("div",{"class":"mx-product-list-item-title"})
+		title = title_container[0].text.strip()
+		
+		priceNew_container = product.findAll("div", {"class": "mx-product-list-item-save"})
+		priceNew = get_priceNew(priceNew_container)
 
-	discount_container = product.findAll("div", {"class": "mx-product-list-item-discount-bottom mx-product-list-item-save"})
-	discount_floatEuro = get_discount(discount_container)
-	discount_perCent = get_discount_perCent(discount_container)
-	# <span> object (html) of final price could not be accessed. Workaround with new price minus discount price
-	priceFinal = round((priceNew-discount_floatEuro), 2)
+		discount_container = product.findAll("div", {"class": "mx-product-list-item-discount-bottom mx-product-list-item-save"})
+		discount_floatEuro = get_discount(discount_container)
+		discount_perCent = get_discount_perCent(discount_container)
+		# <span> object (html) of final price could not be accessed. Workaround with new price minus discount price
+		priceFinal = round((priceNew-discount_floatEuro), 2)
 
-	data_list.extend([i, title, priceFinal, discount_perCent])
-	
-	print("({}): {}\n      {} Euro (- {} %)".format(i, title, priceFinal, discount_perCent))
-	
-	# write gathered information of each book (stored in data_list) to .xls-table
-	column = 0
-	for column_value in data_list:
-		if column == 1:
-			sheet1.write(row, column, column_value, style3)
-		else:
-			sheet1.write(row, column, column_value)
-		column += 1
-	row += 1
+		data_list.extend([i, title, priceFinal, discount_perCent])
+		
+		print("({}): {}\n      {} Euro (- {} %)".format(i, title, priceFinal, discount_perCent))
+		
+		# write gathered information of each book (stored in data_list) to .xls-table
+		column = 0
+		for column_value in data_list:
+			if column == 1:
+				sheet1.write(row, column, column_value, style3)
+			else:
+				sheet1.write(row, column, column_value)
+			column += 1
+		row += 1
+	# try-except: skip temporarily promoted articles (contain <span>-tag)
+	except IndexError:
+		print("({}): Error retrieving product Data".format(i))
+		row += 1
+		continue
 
 	# state number of products being retrieved
 	if i > 19:
