@@ -12,7 +12,7 @@ Outputs an Excel file (.xls) with current book discounts from the store https://
   
   
 2. __Bücher-Discount   26_10_2020 13-29-07.xls__:  
-    * exemplary output file (file name is date-dependant)
+    * exemplary output file (file name is date-dependent)
             
         
 ***
