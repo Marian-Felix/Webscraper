@@ -107,7 +107,7 @@ for product in products:
 		break
 
 now = datetime.now()
-dt_string = now.strftime("%d_%m_%Y %H-%M-%S")
+dt_string = now.strftime("%Y_%m_%d %H-%M-%S")
 
 # save .xls-file with current date&time stamp
-wb.save("Bücher-Discount   {}.xls".format(dt_string))
+wb.save("Bücher-Discount        {}.xls".format(dt_string))
